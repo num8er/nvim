@@ -73,6 +73,10 @@ return {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
       },
+      config = function()
+        local lspconfig = require("lspconfig")
+        lspconfig.sourcekit.setup({})
+      end,
     },
   },
 
