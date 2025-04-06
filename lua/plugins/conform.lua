@@ -1,10 +1,11 @@
-return {
-  "stevearc/conform.nvim",
-  opts = {
-    default_format_opts = {
-      lsp_format = "fallback",
-      async = true,
-      -- timeout_ms = 500,
-    },
-  },
-}
+return { "stevearc/conform.nvim", enabled = false }
+-- return {
+--  "stevearc/conform.nvim",
+--  opts = {
+--    default_format_opts = {
+--      lsp_format = "fallback",
+--      async = true,
+--      -- timeout_ms = 500,
+--    },
+--  },
+-- }
