@@ -27,9 +27,9 @@ end
 
 -- Disable inline diagnostics but keep signs in the sign column
 vim.diagnostic.config({
-  virtual_text = false, -- No inline errors
-  signs = true, -- Keep signs in the sign column
-  underline = true, -- Keep underlining for errors/warnings
+  virtual_text = false,     -- No inline errors
+  signs = true,             -- Keep signs in the sign column
+  underline = true,         -- Keep underlining for errors/warnings
   update_in_insert = false, -- Don't update diagnostics in insert mode
 })
 
