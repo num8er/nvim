@@ -33,3 +33,35 @@ dap.configurations.zig = {
     end,
   }
 }
+
+dap.configurations.node2 = {
+  type = 'executable',
+  command = 'node',
+  args = { os.getenv('HOME') .. '/.local/share/nvim/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' },
+}
+
+dap.configurations.typescript = {
+  {
+    name = 'Attach to Docker service',
+    type = 'node2',
+    request = 'attach',
+    port = 9229,
+    cwd = vim.fn.getcwd(),
+    protocol = 'inspector',
+    skipFiles = { '<node_internals>/**' },
+    remoteRoot = '/app',
+    localRoot = '${workspaceFolder}',
+  },
+  {
+    name = 'Attach to Local service',
+    type = 'node2',
+    request = 'attach',
+    port = 9229,
+    cwd = vim.fn.getcwd(),
+    protocol = 'inspector',
+    skipFiles = { '<node_internals>/**' },
+    localRoot = '${workspaceFolder}',
+  },
+}
+
+dap.configurations.javascript = dap.configurations.typescript
