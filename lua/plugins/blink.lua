@@ -32,8 +32,9 @@ return {
       ["<C-e>"] = { "hide" },
       ["<C-n>"] = { "select_next" },
       ["<C-p>"] = { "select_prev" },
-      ["<Up>"] = { "select_prev" },
-      ["<Down>"] = { "select_next" },
+      ["<Up>"] = { "select_prev", "fallback" },
+      ["<Down>"] = { "select_next", "fallback" },
+      ["<Esc>"] = { "hide", "fallback" },
     },
 
     appearance = {
@@ -48,11 +49,22 @@ return {
       menu = {
         auto_show = false,
       },
+      -- Disable automatic selection
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = false,
+        },
+      },
       trigger = {
         -- Disable automatic triggers
         show_on_insert_on_trigger_character = false,
         show_on_keyword = false,
         show_on_trigger_character = false,
+      },
+      -- Ghost text settings
+      ghost_text = {
+        enabled = false,
       },
     },
 
