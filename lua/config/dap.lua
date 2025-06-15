@@ -33,11 +33,25 @@ dapgo.setup({
 dap.configurations.go = {
   {
     type = "go",
+    name = "Debug (main.go)",
+    request = "launch",
+    program = "${workspaceFolder}/main.go",
+  },
+  {
+    type = "go",
+    name = "Debug (main.go) with Args",
+    request = "launch",
+    program = "${workspaceFolder}/main.go",
+    args = dapgo.get_arguments,
+  },
+  {
+    type = "go",
     name = "Debug (cmd/api/main.go --env local)",
     request = "launch",
     program = "${workspaceFolder}/cmd/api/main.go",
     args = { "--env", "local" },
   },
+
 }
 
 ui.setup({
