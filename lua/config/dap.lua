@@ -1,5 +1,6 @@
 local dap_ok, dap = pcall(require, "dap")
 local dap_ui_ok, ui = pcall(require, "dapui")
+local dap_go_ok, dapgo = pcall(require, 'dap-go')
 
 dap.adapters.lldb = {
   type = 'executable',
@@ -7,10 +8,37 @@ dap.adapters.lldb = {
   name = 'lldb'
 }
 
-if not (dap_ok and dap_ui_ok) then
-  require("notify")("dap-ui not installed!", "warning")
+if not dap_ok then
+  require("notify")("dap not installed!", "warning")
   return
 end
+
+if not dap_ui_ok then
+  require("notify")("dapui not installed!", "warning")
+  return
+end
+
+if not dap_go_ok then
+  require("notify")("dapgo not installed!", "warning")
+  return
+end
+
+dapgo.setup({
+  delve = {
+    initialize_timeout_sec = 20,
+    port = "${port}",
+  },
+})
+
+dap.configurations.go = {
+  {
+    type = "go",
+    name = "Debug (cmd/api/main.go --env local)",
+    request = "launch",
+    program = "${workspaceFolder}/cmd/api/main.go",
+    args = { "--env", "local" },
+  },
+}
 
 ui.setup({
   icons = { expanded = "▾", collapsed = "▸" },
