@@ -1,7 +1,7 @@
 [user]
-    name = Anar Jafarov
+    name = Anar K. Jafarov
     email = anar.k.jafarov@gmail.com
-    signingkey = B128D0BD86D55C9E3D886872F5107A2DDA6BA6EF
+  signingkey = A2ECFB8965AD96EA527D7D01223653372E9D7191
 
 [commit]
     gpgsign = true
